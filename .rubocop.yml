@@ -1,0 +1,11 @@
+Metrics/AbcSize:
+  Max: 17
+Metrics/MethodLength:
+  Max: 15
+Naming/FileName:
+  Exclude:
+    - 'lib/middleman-flickr.rb'
+
+Style/Documentation:
+  Enabled: false
+
