@@ -26,13 +26,8 @@ module Middleman
     end
 
     def display_flickr(opts = {})
-      html = get_flickr_images(opts)
-
-      return "<div class='#{options.html_class}'>#{html}</div>" if html
-      return if !html && !(blk = options.show_on_empty)
-
-      return blk.call(err) if blk.respond_to?(:call)
-      '<div class="alert alert-warning">Images not available.</div>'
+      data = options.to_h.merge(opts)
+      Middleman::Flickr::Scraper.new(data).to_html
     end
 
     def display_flickr_photo(*args)
